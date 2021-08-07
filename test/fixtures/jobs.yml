@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  start_date: 2021-08-07
+  end_date: 2021-08-07
+  complete: false
+  creator_id: 1
+  developer_id: 1
+  github: MyString
+  discord: MyString
+  trello: MyString
+  profile: one
+
+two:
+  title: MyString
+  description: MyText
+  start_date: 2021-08-07
+  end_date: 2021-08-07
+  complete: false
+  creator_id: 1
+  developer_id: 1
+  github: MyString
+  discord: MyString
+  trello: MyString
+  profile: two

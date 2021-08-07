@@ -1,23 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">devfwd</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <%= link_to "Jobs", jobs_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+            <%= link_to "Profile", profiles_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+        <% # if the user is signed in they should see logout, and if they are not signed in they should see login %>
+            <% if user_signed_in? %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-link active" %>
+            <% else %>
+                <%= link_to "Login", new_user_session_path, class:"nav-link active" %>
+            <% end %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+        
       </ul>
     </div>
   </div>
