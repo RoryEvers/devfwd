@@ -2,19 +2,14 @@
 <div class="py-5">
   <h1 class="display-5 fw-bold text-white">Develop it forward.</h1>
   <div class="col-lg-6 mx-auto">
-    <p class="fs-5 mb-4">
-
-    We connect people who share a purpose. <br>
-    
-    If you have an idea or the skills to build the path forward you will find more people like you here. <br>
-    
-     Volunteer to work on their projects or find some people to work on yours.
-    
-    
-     </p>
+    <p class="fs-5 mb-4"> We connect people who share a purpose. <br> If you have an idea or the skills to build the path forward you will find more people like you here. <br>
+    Volunteer to work on their projects or find some people to work on yours.
+    </p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Sign Up</button>
-      <button type="button" class="btn btn-outline-light btn-lg px-4">Open Jobs</button>
+      
+      <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" %>
+      <%= link_to "Open Jobs", jobs_path, class:"btn btn-outline-light btn-lg px-4" %>
+      
     </div>
   </div>
 </div>

@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
-
+<h1>Open Jobs</h1>
+<br>
+<%= link_to 'New Job', new_job_path, class:"btn btn-success" %>
 <table class="table table-striped">
   <thead>
     <tr>
+    <th>Creator</th>
       <th>Title</th>
       <th>Description</th>
       <th>Start date</th>
       <th>End date</th>
-      <th>Creator</th>
-      <th>Developer</th>
+      <th>Developers</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @jobs.each do |job| %>
+      
       <tr>
+      <% if job.complete == false %>
+        <td><%= link_to job.creator.user_name, profile_path(id: job.creator.id)  %></td>
         <td><%= link_to job.title, job %></td>
         <td><%= job.description %></td>
         <td><%= job.start_date %></td>
         <td><%= job.end_date %></td>
-        <td><%= link_to job.creator.user_name, profile_path(id: job.creator.id)  %></td>
         <td><%= job.developer_id %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Job', new_job_path, class:"btn btn-success" %>
+
+

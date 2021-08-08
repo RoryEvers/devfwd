@@ -8,13 +8,16 @@
     <%= f.input :description %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <%= f.input :complete %>
+    
     <%= f.input :github %>
     <%= f.input :discord %>
     <%= f.input :trello %>
+    <p><br>Mark Job As Complete</p>
+    <%= f.input :complete %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+  <br>
+    <%= f.button :submit, class:"btn btn-success" %>
   </div>
 <% end %>

@@ -1,59 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
+<div class="card border-dark mb-3" style="max-width: 40rem;">
+  <div class="card-header card-title">
+  <% if @job.complete %>
+    Past Job
+    <% else %>
+    Open Job
+    <% end %>
+  </div>
+  <div class="card-body text-dark">
+    <h5 class="card-title"><%= @job.title %></h5>
+    <p>
+      <strong>Start date:</strong>
+      <%= @job.start_date %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
+    <p>
+      <strong>End date:</strong>
+      <%= @job.end_date %>
+    </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @job.start_date %>
-</p>
+    <p>
+      <strong>Complete:</strong>
+      <%= @job.complete %>
+    </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @job.end_date %>
-</p>
+    <p>
+      <strong>Creator:</strong>
+      <%= @job.creator.user_name %>
+    </p>
 
-<p>
-  <strong>Complete:</strong>
-  <%= @job.complete %>
-</p>
+    <p>
+      <strong>Developer:</strong>
+      <%= @job.developer_id %>
+    </p>
 
-<p>
-  <strong>Creator:</strong>
-  <%= @job.creator.user_name %>
-</p>
+    <p>
+      <strong>Github:</strong>
+      <%= @job.github %>
+    </p>
 
-<p>
-  <strong>Developer:</strong>
-  <%= @job.developer_id %>
-</p>
+    <p>
+      <strong>Discord:</strong>
+      <%= @job.discord %>
+    </p>
 
-<p>
-  <strong>Github:</strong>
-  <%= @job.github %>
-</p>
+    <p>
+      <strong>Trello:</strong>
+      <%= @job.trello %>
+    </p>
 
-<p>
-  <strong>Discord:</strong>
-  <%= @job.discord %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @job.description %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Trello:</strong>
-  <%= @job.trello %>
-</p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @job.profile_id %>
-</p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+
+
+<%= link_to 'Edit Job', edit_job_path(@job), class:"btn btn-success" %> 
+
