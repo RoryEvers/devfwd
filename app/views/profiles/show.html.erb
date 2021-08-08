@@ -51,12 +51,22 @@
   <div class="card card border-dark mb-3">
     <div class="card-body">
       <h5 class="card-title">Current Jobs</h5>
+      <%  @profile.jobs.all.each do |job| %>
+        <% if job.complete == false %>
+        <%= link_to job.title, job_path(job) %>
+        <% end %>
+        <% end %>
     </div>
   </div>
 
   <div class="card card border-dark mb-3">
     <div class="card-body">
       <h5 class="card-title">Past Jobs</h5>
+      <%  @profile.jobs.all.each do |job| %>
+        <% if job.complete == true %>
+        <%= link_to job.title, job_path(job) %>
+        <% end %>
+        <% end %>
     </div>
   </div>
 </div>

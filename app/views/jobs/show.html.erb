@@ -5,11 +5,18 @@
   <% if @job.complete %>
     Past Job
     <% else %>
-    Open Job
+
+    <%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success me-auto" %> 
     <% end %>
   </div>
   <div class="card-body text-dark">
     <h5 class="card-title"><%= @job.title %></h5>
+
+    <p>
+      <strong>Creator:</strong>
+      <%= link_to @job.creator.user_name, profile_path(id: @job.creator.id)  %>
+    </p>
+
     <p>
       <strong>Start date:</strong>
       <%= @job.start_date %>
@@ -21,18 +28,11 @@
     </p>
 
     <p>
-      <strong>Complete:</strong>
-      <%= @job.complete %>
-    </p>
+      <strong>Developers:</strong>
+      <%  @job.profiles.all.each do |profile| %>
+        <%= profile.user_name %>
+        <% end %>
 
-    <p>
-      <strong>Creator:</strong>
-      <%= @job.creator.user_name %>
-    </p>
-
-    <p>
-      <strong>Developer:</strong>
-      <%= @job.developer_id %>
     </p>
 
     <p>
@@ -58,6 +58,13 @@
 </div>
 
 
+
+
+
+
+<%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %> 
+
+<%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
 
 
 
