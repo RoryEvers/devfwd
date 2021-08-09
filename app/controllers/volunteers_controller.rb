@@ -60,6 +60,7 @@ class VolunteersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
       @volunteer = Volunteer.find(params[:id])
+      # @volunteer = Volunteer.where(profile_id: params[:profile_id], job_id: params[:job_id])
     end
 
     # Only allow a list of trusted parameters through.

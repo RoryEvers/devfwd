@@ -30,9 +30,9 @@
     <p>
       <strong>Developers:</strong>
       <%  @job.profiles.all.each do |profile| %>
-        <%= profile.user_name %>
+        <%= link_to profile.user_name, profile_path(id: profile)  %>
         <% end %>
-
+        
     </p>
 
     <p>
@@ -64,8 +64,8 @@
 
 <%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %> 
 
-<%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
 
+<%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
 
 
 <%= link_to 'Edit Job', edit_job_path(@job), class:"btn btn-success" %> 
