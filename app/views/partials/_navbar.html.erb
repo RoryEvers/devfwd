@@ -11,7 +11,11 @@
             <%= link_to "Open Jobs", jobs_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
+          <% if user_signed_in? %>
             <%= link_to "Profile", profile_path(id: current_user.id), class:"nav-link active" %>
+          <% else %>
+              <%= link_to "Profile", new_user_session_path, class:"nav-link active" %>
+          <% end %>
         </li>
         <li class="nav-item">
         <% # if the user is signed in they should see logout, and if they are not signed in they should see login %>

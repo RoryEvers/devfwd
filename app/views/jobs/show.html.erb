@@ -6,7 +6,7 @@
     Past Job
     <% else %>
 
-    <%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success me-auto" %> 
+    Open Job
     <% end %>
   </div>
   <div class="card-body text-dark">
@@ -58,15 +58,22 @@
 </div>
 
 
-
-
-
-
-<%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %> 
-
-
+<% begin %>
+<% job = current_user.profile.jobs.find(@job.id) %>
 <%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
+<% rescue %>
+<%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %>
+<% end %>
 
 
-<%= link_to 'Edit Job', edit_job_path(@job), class:"btn btn-success" %> 
+
+
+
+
+<% if @job.creator_id == current_user.profile.id%>
+  <%= link_to 'Edit Job', edit_job_path(@job), class:"btn btn-success" %> 
+<% end %>
+
+
+
 

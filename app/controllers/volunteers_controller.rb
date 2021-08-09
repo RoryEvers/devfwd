@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-  before_action :set_volunteer, only: %i[ show edit update destroy ]
+  before_action :set_volunteer, only: %i[ show edit update ]
 
   # GET /volunteers or /volunteers.json
   def index
@@ -49,9 +49,10 @@ class VolunteersController < ApplicationController
 
   # DELETE /volunteers/1 or /volunteers/1.json
   def destroy
+    @volunteer = Volunteer.find_by(profile_id: params[:volunteer][:profile_id], job_id: params[:volunteer][:job_id])
     @volunteer.destroy
     respond_to do |format|
-      format.html { redirect_to volunteers_url, notice: "Volunteer was successfully destroyed." }
+      format.html { redirect_to profile_path(id: current_user.id), notice: "You have left successfully left the job." }
       format.json { head :no_content }
     end
   end
