@@ -6,14 +6,16 @@
   <div class="form-inputs">
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :user_name %>
+    <%= f.input :user_name, required: true %>
     <%= f.input :github %>
     <%= f.input :bio %>
     <%= f.input :representing_organisation %>
-  
-    <%= f.file_field :picture, accept: "image/png, image/jpg, image/jpeg" %>
+    <br>
+    <p> Profile Picture </p>
+    <%= f.file_field :picture, accept: "image/png, image/jpg, image/jpeg", required: true %>
   </div>
 
+  <br>
   <div class="form-actions">
     <%= f.button :submit, class:"btn btn-primary" %>
   </div>

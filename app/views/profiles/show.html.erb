@@ -4,10 +4,14 @@
 
 <div class="card-deck" >
 
-<div class="card-group">
-  <div class="card card border-dark bg-light">
-  <h5 class="card-title"></h5>
-  <%= image_tag "Ferrari_F50.jpg", class:"profile-img" %>
+  <div class="card-group">
+
+    <div class="card card border-dark bg-light">
+     <h5 class="card-title"></h5>
+        <% if @profile.picture.attached? %>
+          <%= image_tag @profile.picture, class:"profile-img" %>
+        <% end %>
+        
     <div class="card-body">
       
     </div>
@@ -38,22 +42,28 @@
         <%= @profile.github %>
       </p>
 
+      
+<% if @profile.id == current_user.profile.id%>
+<%= link_to 'Edit Profile', edit_profile_path(@profile), class:"btn btn-primary" %> 
+<%= link_to 'Create Job', new_job_path, class:"btn btn-success" %>
+<% end %>
+
     </div>
     
   </div>
  
 </div>
-
+</div>
 
     
-  </div>
+  
 
   <div class="card card border-dark mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Bio</h5>
-    <p><%= @profile.bio %></p>
+    <div class="card-body">
+      <h5 class="card-title">Bio</h5>
+      <p><%= @profile.bio %></p>
+    </div>
   </div>
-</div>
 
 
   <div class="card card border-dark mb-3">
@@ -77,19 +87,13 @@
         <% end %>
     </div>
   </div>
+
 </div>
 
-<br>
-
-<% if @profile.picture.attached? %>
-<%= image_tag @profile.picture %>
-<% end %>
 
 
-<% if @profile.id == current_user.profile.id%>
-<%= link_to 'Edit Profile', edit_profile_path(@profile), class:"btn btn-primary" %> 
-<%= link_to 'Create Job', new_job_path, class:"btn btn-success" %>
-<% end %>
+
+
 
 
 
