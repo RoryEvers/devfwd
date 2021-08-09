@@ -3,5 +3,5 @@ class Profile < ApplicationRecord
   has_many :jobs_to_create, class_name: "Job", foreign_key: "creator_id"
   has_many :volunteers
   has_many :jobs, through: :volunteers  
-  
+  has_one_attached :picture
 end

@@ -81,6 +81,11 @@
 
 <br>
 
+<% if @profile.picture.attached? %>
+<%= image_tag @profile.picture %>
+<% end %>
+
+
 <% if @profile.id == current_user.profile.id%>
 <%= link_to 'Edit Profile', edit_profile_path(@profile), class:"btn btn-primary" %> 
 <%= link_to 'Create Job', new_job_path, class:"btn btn-success" %>

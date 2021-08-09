@@ -10,6 +10,8 @@
     <%= f.input :github %>
     <%= f.input :bio %>
     <%= f.input :representing_organisation %>
+  
+    <%= f.file_field :picture, accept: "image/png, image/jpg, image/jpeg" %>
   </div>
 
   <div class="form-actions">
