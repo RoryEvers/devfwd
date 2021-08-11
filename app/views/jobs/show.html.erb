@@ -58,18 +58,15 @@
 </div>
 
 <% if @job.complete %>
-This job has been completed
+  This job has been completed
 <% else %>
 <% begin %>
-<% job = current_user.profile.jobs.find(@job.id) %>
-<%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
-<% rescue %>
-<%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %>
+  <% job = current_user.profile.jobs.find(@job.id) %>
+  <%= link_to 'Leave Job', volunteer_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :delete, class:"btn btn-success" %> 
+  <% rescue %>
+  <%= link_to 'Volunteer', volunteers_path(volunteer: {profile_id: current_user.profile.id, job_id: @job.id}), method: :post, class:"btn btn-success" %>
+  <% end %>
 <% end %>
-<% end %>
-
-
-
 
 
 <% if @job.creator_id == current_user.profile.id%>

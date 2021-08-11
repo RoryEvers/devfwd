@@ -4,4 +4,6 @@ class Profile < ApplicationRecord
   has_many :volunteers
   has_many :jobs, through: :volunteers  
   has_one_attached :picture
+
+  validates :user_name, length: { in: 2..100 }
 end

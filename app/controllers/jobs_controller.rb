@@ -4,7 +4,8 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.all.preload(:profiles)
+
   end
 
   # GET /jobs/1 or /jobs/1.json
