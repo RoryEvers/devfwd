@@ -2,6 +2,7 @@
 
 <h1>Open Jobs</h1>
 <br>
+<% # Link to new job form %>
 <%= link_to 'New Job', new_job_path, class:"btn btn-success" %>
 <table class="table table-striped">
   <thead>
@@ -16,6 +17,7 @@
     </tr>
   </thead>
 
+  <% # List all open jobs with relevant information such as creator and quantity of volunteers. Eager loading used for job.profiles.count %>
   <tbody>
     <% @jobs.each do |job| %>
       

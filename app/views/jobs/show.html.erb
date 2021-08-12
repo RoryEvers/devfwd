@@ -11,7 +11,7 @@
   </div>
   <div class="card-body text-dark">
     <h5 class="card-title"><%= @job.title %></h5>
-
+<% # Each job should have a link to their creator's profile %>
     <p>
       <strong>Creator:</strong>
       <%= link_to @job.creator.user_name, profile_path(id: @job.creator.id)  %>
@@ -26,7 +26,7 @@
       <strong>End date:</strong>
       <%= @job.end_date %>
     </p>
-
+    <% # All volunteers on a project should be listed with a link to their profile %>
     <p>
       <strong>Developers:</strong>
       <%  @job.profiles.all.each do |profile| %>
@@ -57,6 +57,7 @@
   </div>
 </div>
 
+<% # If the job has been complete then users should not see the volunteer button %>
 <% if @job.complete %>
   This job has been completed
 <% else %>
@@ -68,7 +69,7 @@
   <% end %>
 <% end %>
 
-
+<% # Only the job's creator should see the edit job button %>
 <% if @job.creator_id == current_user.profile.id%>
   <%= link_to 'Edit Job', edit_job_path(@job), class:"btn btn-success" %> 
 <% end %>

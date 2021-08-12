@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   # POST /profiles or /profiles.json
+  # A profile ID will be the same as the User ID 
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id 

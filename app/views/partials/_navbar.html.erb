@@ -11,6 +11,7 @@
             <%= link_to "Open Jobs", jobs_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
+       <% # If a user is signed in they are able to go to the profile page, but if they are not signed in they should be taken to the sign in page %>
           <% if user_signed_in? %>
             <%= link_to "Profile", profile_path(id: current_user.id), class:"nav-link active" %>
           <% else %>

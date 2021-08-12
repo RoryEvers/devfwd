@@ -22,7 +22,6 @@ class VolunteersController < ApplicationController
   # POST /volunteers or /volunteers.json
   def create
     @volunteer = Volunteer.new(volunteer_params)
-    # redirect_to job_path(params[job_id])
     respond_to do |format|
       if @volunteer.save
         format.html { redirect_to profile_path(id: current_user.id), notice: "You successfully volunteered for a job!" }
@@ -48,11 +47,13 @@ class VolunteersController < ApplicationController
   end
 
   # DELETE /volunteers/1 or /volunteers/1.json
+  
+  # Volunteer is a has many through relationship, and each of its parameters are thus found through volunteer e.g. [:volunteer][:profile_id]
   def destroy
     @volunteer = Volunteer.find_by(profile_id: params[:volunteer][:profile_id], job_id: params[:volunteer][:job_id])
     @volunteer.destroy
     respond_to do |format|
-      format.html { redirect_to profile_path(id: current_user.id), notice: "You have left successfully left the job." }
+      format.html { redirect_to profile_path(id: current_user.id), notice: "You have successfully left the job." }
       format.json { head :no_content }
     end
   end
@@ -61,7 +62,6 @@ class VolunteersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_volunteer
       @volunteer = Volunteer.find(params[:id])
-      # @volunteer = Volunteer.where(profile_id: params[:profile_id], job_id: params[:job_id])
     end
 
     # Only allow a list of trusted parameters through.
